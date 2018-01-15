@@ -41,6 +41,7 @@ then
     service ssh restart
 
 else
+#TODO rewrite this crap 
 
     echo you must be a centos user ! 
 
