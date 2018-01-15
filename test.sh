@@ -3,12 +3,11 @@
 # First Update all packages -y for no interactive
 apt-get update -y
 apt-get upgrade -y
-apt-get install htop denyhosts iotop fail2ban openssh-server -y
+apt-get install htop denyhosts iotop fail2ban openssh-server vim -y
 sed -i '/^PermitRootLogin[ \t]\+\w\+$/{ s//PermitRootLogin no/g; }' /etc/ssh/sshd_config
 
 if [ $(id -u) -eq 0 ]; then #root only
 	read -s -p "Enter new root password: " rootpassword
-	echo "root:$rootpassword" | chpasswd
 	read -p "Enter a new user : " username
 	read -s -p "Enter a password for this new user : " password
 	egrep "^$username" /etc/passwd >/dev/null
@@ -16,6 +15,8 @@ if [ $(id -u) -eq 0 ]; then #root only
 		echo "$username exists!"
 		exit 1
 	else
+		rootpass=$(perl -e 'print crypt($ARGV[0], "password")' $rootpassword)
+		echo "root:$rootpass" | chpasswd		
 		pass=$(perl -e 'print crypt($ARGV[0], "password")' $password)
 		useradd -m -p $pass $username
 		usermod -aG sudo $username
