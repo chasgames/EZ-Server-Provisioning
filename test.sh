@@ -3,7 +3,7 @@
 # First Update all packages -y for no interactive
 apt-get update -y
 apt-get upgrade -y
-apt-get install htop denyhosts iotop fail2ban openssh-server vim -y
+apt-get install htop denyhosts iotop fail2ban openssh-server vim sudo -y
 sed -i '/^PermitRootLogin[ \t]\+\w\+$/{ s//PermitRootLogin no/g; }' /etc/ssh/sshd_config
 
 if [ $(id -u) -eq 0 ]; then #root only
