@@ -41,6 +41,49 @@ then
     service ssh restart
 
 else
-    
-    echo you are not using ubuntu
+
+    echo you must be a centos user ! 
+
+    echo updating yum
+
+    yum update -y
+
+
+    echo installing epel
+
+    yum install -y epel-release
+
+
+    SOFTWARE_LIST="screen vim  wget links curl "
+
+
+    echo installing sane software
+
+
+    yum install -y $SOFTWARE_LIST
+
+
+    #the y/n needs to be able to accept yes and no and Y and N
+
+
+    echo "do you want to make a user ? [y/n]" #in quotes because [] seems to break things
+
+    #read reads user input in this case it gets user input and puts it into the MAKEAUSER variable
+    read MAKEAUSER   
+
+
+
+    if [ $MAKEAUSER == y ] #bash if statment and condition
+    then
+       echo enter a username
+          read NAME
+             adduser $NAME
+                echo enter your password
+                   passwd $NAME --stdin  #--stdin is whatever the user enters
+                      echo yay the user $NAME was created !!!
+                  fi #end of if statment
+
+                  echo complete
+
 fi
+
