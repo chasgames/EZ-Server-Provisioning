@@ -14,6 +14,7 @@ then
 
 
     # First Update all packages -y for no interactive
+    echo updating apt 
     apt-get update -y
     apt-get upgrade -y
     apt-get install htop denyhosts iotop fail2ban openssh-server vim sudo -y
