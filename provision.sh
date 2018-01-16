@@ -87,6 +87,8 @@ else
        echo enter your password
        passwd $NAME --stdin  #--stdin is whatever the user enters
        echo yay the user $NAME was created !!!
+       echo making the user a super user
+       usermod -aG wheel $NAME
     fi #end of if statment
 
    echo complete
