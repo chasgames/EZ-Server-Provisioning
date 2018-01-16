@@ -1,6 +1,8 @@
 #!/bin/bash
 
 #TODO have singluar software list as a variable ? 
+#have command line options for installing certain apps ? eg ./test.sh --docker 
+
 
 #detect distro
 distro=$(lsb_release -i | cut -f 2-)
