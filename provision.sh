@@ -81,14 +81,14 @@ else
     if [ $MAKEAUSER == y ] #bash if statment and condition
     then
        echo enter a username
-          read NAME
-             adduser $NAME
-                echo enter your password
-                   passwd $NAME --stdin  #--stdin is whatever the user enters
-                      echo yay the user $NAME was created !!!
-                  fi #end of if statment
+       read -s -p  NAME
+       adduser $NAME
+       echo enter your password
+       passwd $NAME --stdin  #--stdin is whatever the user enters
+       echo yay the user $NAME was created !!!
+    fi #end of if statment
 
-                  echo complete
+   echo complete
 
 fi
 
