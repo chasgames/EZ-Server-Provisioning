@@ -5,6 +5,7 @@
 
 
 #detect distro
+#might have to change this, dont think it is default on ubuntu
 distro=$(lsb_release -i | cut -f 2-)
 
 
