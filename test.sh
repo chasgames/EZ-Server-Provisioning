@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#TODO have singluar software list as a variable ? 
+
 #detect distro
 distro=$(lsb_release -i | cut -f 2-)
 
