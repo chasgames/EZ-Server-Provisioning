@@ -14,7 +14,7 @@ then
 
 
     # First Update all packages -y for no interactive
-    echo updating apt 
+    echo "Congratulations for choosing the best linux distribution"
     apt-get update -y
     apt-get upgrade -y
     apt-get install htop denyhosts iotop iftop openssh-server vim sudo -y
@@ -45,9 +45,28 @@ then
 
     # Need to restart SSH for root password to take affect.
     service ssh restart
+    
+
+    read -p "Do you want Docker?" -n 1 -r
+    echo    # (optional) move to a new line
+    if [[ $REPLY =~ ^[Yy]$ ]]
+    then
+        echo "installing Docker"
+    fi
+    
+    read -p "Do you want Duo? " -n 1 -r
+    echo    # (optional) move to a new line
+    if [[ $REPLY =~ ^[Yy]$ ]]
+    then
+        echo "installing Duo"
+    fi
 
 else
-#TODO rewrite this crap 
+###                        MARKS SECTION STARTS HERE                               ###
+###
+###
+######################################################################################
+#TODO rewrite Marks Crap
 
     echo you must be a centos user ! 
 
