@@ -6,6 +6,7 @@
 
 #detect distro
 #might have to change this, dont think it is default on ubuntu
+echo "Detecting Linux Distro"
 distro=$(lsb_release -i | cut -f 2-)
 
 
@@ -17,7 +18,7 @@ then
     echo "Congratulations for choosing the best linux distribution"
     apt-get update -y
     apt-get upgrade -y
-    apt-get install htop denyhosts iotop iftop openssh-server vim sudo chrony -y
+    apt-get install htop denyhosts iotop iftop openssh-server vim sudo chrony curl wget -y
     echo "Configuring packages"
     echo "Removing SSH Root Login"
     sed -i '/^PermitRootLogin[ \t]\+\w\+$/{ s//PermitRootLogin no/g; }' /etc/ssh/sshd_config
