@@ -7,11 +7,11 @@
 #detect distro
 #might have to change this, dont think it is default on ubuntu
 echo "Detecting Linux Distro"
-distro=$(lsb_release -i | cut -f 2-)
-
-
-if [ "$distro" ==  *"Ubuntu"* ]
-then
+if cat /etc/*-release | grep ubuntu then
+#This doesn't work for minimal images
+#distro=$(lsb_release -i | cut -f 2-)
+#if [ "$distro" ==  *"Ubuntu"* ]
+#then
 
 
     # First Update all packages -y for no interactive
