@@ -17,8 +17,13 @@ then
     echo "Congratulations for choosing the best linux distribution"
     apt-get update -y
     apt-get upgrade -y
-    apt-get install htop denyhosts iotop iftop openssh-server vim sudo -y
+    apt-get install htop denyhosts iotop iftop openssh-server vim sudo chrony -y
+    echo "Configuring packages"
+    echo "Removing SSH Root Login"
     sed -i '/^PermitRootLogin[ \t]\+\w\+$/{ s//PermitRootLogin no/g; }' /etc/ssh/sshd_config
+    # Configuring Chrony, way better than NTPd, much more reliable and stays in Sync.
+    echo "Maybe add some time sources here"
+    
 
     if [ $(id -u) -eq 0 ]; then #root only
         read -s -p "Enter new root password: " rootpassword
