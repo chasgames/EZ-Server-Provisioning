@@ -8,7 +8,7 @@
 #might have to change this, dont think it is default on ubuntu
 echo "Please make sure you are Root user because we need it."
 echo "Detecting Linux Distro"
-if cat /etc/*-release | grep ubuntu ; then
+if cat /etc/*-release | grep ubuntu >/dev/null; then
 #This doesn't work for minimal images
 #distro=$(lsb_release -i | cut -f 2-)
 #if [ "$distro" ==  *"Ubuntu"* ]
@@ -29,8 +29,7 @@ if cat /etc/*-release | grep ubuntu ; then
     read -s -p "Enter new root password: " rootpassword
         read -p "Enter a new user : " username
         read -s -p "Enter a password for this new user : " password
-        egrep "^$username" /etc/passwd >/dev/null
-        if [ $? -eq 0 ]; then
+if cat /etc/passwd | grep $username >/dev/null; then
             echo "$username exists!"
             exit 1
         else
