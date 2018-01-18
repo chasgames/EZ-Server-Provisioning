@@ -47,14 +47,14 @@ then
     service ssh restart
     
 
-    read -p "Do you want Docker?" -n 1 -r
+    read -p "Do you want Docker? [y/n] " -n 1 -r
     echo    # (optional) move to a new line
     if [[ $REPLY =~ ^[Yy]$ ]]
     then
         echo "installing Docker"
     fi
     
-    read -p "Do you want Duo? " -n 1 -r
+    read -p "Do you want Duo? [y/n] " -n 1 -r
     echo    # (optional) move to a new line
     if [[ $REPLY =~ ^[Yy]$ ]]
     then
