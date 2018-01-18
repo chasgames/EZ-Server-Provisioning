@@ -6,6 +6,7 @@
 
 #detect distro
 #might have to change this, dont think it is default on ubuntu
+echo "Please make sure you are Root user because we need it."
 echo "Detecting Linux Distro"
 if cat /etc/*-release | grep ubuntu ; then
 #This doesn't work for minimal images
@@ -25,9 +26,7 @@ if cat /etc/*-release | grep ubuntu ; then
     # Configuring Chrony, way better than NTPd, much more reliable and stays in Sync.
     echo "Maybe add some time sources here"
     
-
-    if [ $(id -u) -eq 0 ]; then #root only
-        read -s -p "Enter new root password: " rootpassword
+    read -s -p "Enter new root password: " rootpassword
         read -p "Enter a new user : " username
         read -s -p "Enter a password for this new user : " password
         egrep "^$username" /etc/passwd >/dev/null
@@ -42,10 +41,7 @@ if cat /etc/*-release | grep ubuntu ; then
             usermod -aG sudo $username
             [ $? -eq 0 ] && echo "User has been added to system.. oh and it's a sudo!" || echo "Failed to add a user!"
         fi
-    else
-        echo "Only root may add a user to the system"
-        exit 2
-    fi
+   
     read -p "Set a hostname for your server: (etc.. z.mk) don't use _ " myhostname
     hostnamectl set-hostname $myhostname
 
