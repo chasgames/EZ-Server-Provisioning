@@ -106,9 +106,27 @@ else
        echo yay the user $NAME was created !!!
        echo making the user a super user
        usermod -aG wheel $NAME
+       echo I have added a the user $NAME
     fi #end of if statment
+    
+    
+    read -p "Do you want Docker? [y/n] " -n 1 -r
+    echo    # (optional) move to a new line
+    if [[ $REPLY =~ ^[Yy]$ ]]
+    then
+        echo "installing Docker"
+fi
 
-   echo complete
+    read -p "do you want 2fa? " -n 1 -r
+    echo    # (optional) move to a new line
+    if [[ $REPLY =~ ^[Yy]$ ]]
+    then
+        echo "Installing 2fa"
+        
+        
+    fi
+
+  
 
 fi
 
