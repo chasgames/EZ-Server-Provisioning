@@ -122,6 +122,10 @@ fi
     if [[ $REPLY =~ ^[Yy]$ ]]
     then
         echo "Installing 2fa"
+        echo "we will be using TOTP, you can authenticate using any OATH tool, this process will produce a qr code"
+        echo "you can scan the QR code using the google authenticator"
+        yum install -y google-authenticator > /dev/null
+        google-authenticator -t -d -f -r 3 -R 30 -W -Q utf8
         
         
     fi
