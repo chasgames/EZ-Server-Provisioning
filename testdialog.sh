@@ -1,6 +1,6 @@
-dialog --title "Delete file" \
---backtitle "Linux Shell Script Tutorial Example" \
---yesno "Are you sure you want to permanently delete \"/tmp/foo.txt\"?" 7 60
+dialog --title "do you want this app" \
+--backtitle "checking what apps you want to use" \
+--yesno "do you want docker" 7 60
 
 # Get exit status
 # 0 means user hit [yes] button.
@@ -8,16 +8,9 @@ dialog --title "Delete file" \
 # 255 means user hit [Esc] key.
 response=$?
 case $response in
-   0) echo "File deleted.";;
-   1) echo "File not deleted.";;
+   0) echo "you pressed yes";;
+   1) echo "you pressed no.";;
    255) echo "[ESC] key pressed.";;
 esac
 
-
-
-exec 3>&1;
-result=$(dialog --inputbox test 0 0 2>&1 1>&3);
-exitcode=$?;
-exec 3>&-;
-echo $result $exitcode;
 
