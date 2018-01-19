@@ -3,3 +3,5 @@
 wget https://raw.githubusercontent.com/chasgames/EZ-Server-Provisioning/master/provision.sh -O ./prov.sh
 chmod +x prov.sh
 ./prov.sh
+
+#test
