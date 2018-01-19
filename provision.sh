@@ -96,7 +96,7 @@ else
 
 
 
-    if [ $MAKEAUSER == y ] #bash if statment and condition
+    if [ $MAKEAUSER -eq  y ] #bash if statment and condition
     then
        echo enter a username
        read -s -p  NAME
