@@ -69,12 +69,12 @@ else
 
     echo updating yum
 
-    yum update -y
+    yum update -y > /dev/null
 
 
     echo installing epel
 
-    yum install -y epel-release
+    yum install -y epel-release > /dev/null
 
 
     SOFTWARE_LIST="screen vim  wget links curl iftop iotop "
@@ -83,7 +83,7 @@ else
     echo installing sane software
 
 
-    yum install -y $SOFTWARE_LIST
+    yum install -y $SOFTWARE_LIST > /dev/null
 
 
     #the y/n needs to be able to accept yes and no and Y and N
