@@ -9,10 +9,6 @@
 echo "Please make sure you are Root user because we need it."
 echo "Detecting Linux Distro"
 if cat /etc/*-release | grep ubuntu >/dev/null; then
-#This doesn't work for minimal images
-#distro=$(lsb_release -i | cut -f 2-)
-#if [ "$distro" ==  *"Ubuntu"* ]
-#then
 
 
     # First Update all packages -y for no interactive
