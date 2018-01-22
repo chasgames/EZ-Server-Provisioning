@@ -110,16 +110,12 @@ else
     fi #end of if statment
     
     
-    read -p "Do you want Docker? [y/n] " -n 1 -r
-    echo    # (optional) move to a new line
-    if [[ $REPLY =~ ^[Yy]$ ]]
+    if [[ $docker_choice == "yes" ]]
     then
         echo "installing Docker"
 fi
 
-    read -p "do you want 2fa? " -n 1 -r
-    echo    # (optional) move to a new line
-    if [[ $REPLY == ^[Yy]$ ]]
+    if [[ $twofa_choice == "yes" ]]
     then
         echo "Installing 2fa"
         echo "we will be using TOTP, you can authenticate using any OATH tool, this process will produce a qr code"
