@@ -119,7 +119,7 @@ fi
 
     read -p "do you want 2fa? " -n 1 -r
     echo    # (optional) move to a new line
-    if [[ $REPLY =~ ^[Yy]$ ]]
+    if [[ $REPLY == ^[Yy]$ ]]
     then
         echo "Installing 2fa"
         echo "we will be using TOTP, you can authenticate using any OATH tool, this process will produce a qr code"
