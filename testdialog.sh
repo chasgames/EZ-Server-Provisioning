@@ -10,7 +10,7 @@ response=$?
 case $response in
    0) docker_choice="yes";;
    1) docker_choice="no";;
-   255) echo "[ESC] key pressed.";;
+   255) docker_choice="ESC KEY PRESSED ABORT THE MISSION";;
 esac
 
 
