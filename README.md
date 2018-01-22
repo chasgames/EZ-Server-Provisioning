@@ -9,10 +9,11 @@ TODO:
 Maybe seperate the scripts
 
 Use a curses based menu system so you can pick and chose what you want 
+- this is done, need to find out where to actually put the scripts
+- then we need to make sure that all the if statments and varibales are changed
+  to accept arguments from the dialog
 
 
-need to add this curses frontend to the script and change up the if statments
-to accept the arguments (0,1) from curses
 
 Some way to change the user when installing the authenticator to the user that
 was created during earlier part of the script
