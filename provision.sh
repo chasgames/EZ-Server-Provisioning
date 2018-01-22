@@ -66,6 +66,8 @@ else
 #TODO rewrite Marks Crap
 
     echo you must be a centos user ! 
+    
+    sleep 0.2
 
     echo updating yum
 
@@ -81,6 +83,8 @@ else
 
 
     echo installing sane software
+    
+    sleep 0.2
 
 
     yum install -y $SOFTWARE_LIST > /dev/null
@@ -102,11 +106,14 @@ else
        read -s -p  NAME
        adduser $NAME
        echo enter your password
+       sleep 0.2
        passwd $NAME --stdin  #--stdin is whatever the user enters
        echo yay the user $NAME was created !!!
-       echo making the user a super user
+       sleep 0.2
+       echo making the user a superuser
+       sleep 0.2
        usermod -aG wheel $NAME
-       echo I have added a the user $NAME
+       echo I have added user $NAME
     fi #end of if statment
     
     
@@ -118,7 +125,9 @@ fi
     if [[ $twofa_choice == "yes" ]]
     then
         echo "Installing 2fa"
+        sleep 0.2
         echo "we will be using TOTP, you can authenticate using any OATH tool, this process will produce a qr code"
+        sleep 0.2
         echo "you can scan the QR code using the google authenticator"
         yum install -y google-authenticator > /dev/null
         google-authenticator -t -d -f -r 3 -R 30 -W -Q utf8
