@@ -9,7 +9,7 @@ echo $testing
 echo $hostname_choice
 echo $rootpw_choice
 echo $newusr_choice
-echo $newusrpw
+echo $newusrpw_choice
 echo $docker_choice
 read -s -p "yo whats up : " lolwhat
     # First Update all packages -y for no interactive
