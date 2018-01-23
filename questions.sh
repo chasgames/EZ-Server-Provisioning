@@ -1,3 +1,12 @@
+exec 3>&1;
+hostname_choice=$(dialog --inputbox "Enter your hostname (e.g dedust2)" 0 0 2>&1 1>&3);
+rootpw_choice=$(dialog --inputbox "Change the root password" 0 0 2>&1 1>&3);
+newusr_choice=$(dialog --inputbox "Create your user (e.g Charlie)" 0 0 2>&1 1>&3);
+newusrpw_choice=$(dialog --passwordbox --insecure "Enter the password for $newusr_choice" 0 0 2>&1 1>&3);
+exitcode=$?;
+exec 3>&-;
+#echo $result $exitcode;
+
 dialog --title "do you want this app" \
 --backtitle "checking what apps you want to use" \
 --yesno "do you want docker" 7 60
@@ -13,22 +22,14 @@ case $response in
    255) docker_choice="ESC KEY PRESSED ABORT THE MISSION";;
 esac
 
-
 if [[ $docker_choice == "yes" ]]
     then
         echo "installing Docker"
 fi
 
-exec 3>&1;
-hostname_choice=$(dialog --inputbox "Enter your hostname (e.g dedust2)" 0 0 2>&1 1>&3);
-rootpw_choice=$(dialog --inputbox "Change the root password" 0 0 2>&1 1>&3);
-newusr_choice=$(dialog --inputbox "Create your user (e.g Charlie)" 0 0 2>&1 1>&3);
-newusrpw_choice=$(dialog --passwordbox "Enter the password for $newusr_choice" 0 0 2>&1 1>&3);
-result=$(dialog --inputbox "Enter your hostname (e.g dedust2)" 0 0 2>&1 1>&3);
-exitcode=$?;
-exec 3>&-;
-#echo $result $exitcode;
-
 export testing="can't believe this works"
+export hostname_choice=$hostname_choice
+export rootpw_choice=$rootpw_choice
+export newusr_choice=$newusr_choice
+export newusrpw=$newusrpw
 export docker_choice=$docker_choice
-export hostname_choice=$result
