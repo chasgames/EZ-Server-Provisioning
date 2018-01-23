@@ -19,4 +19,6 @@ if [[ $docker_choice == "yes" ]]
         echo "installing Docker"
 fi
 
+testing="thisisatest"
+export testing
 export docker_choice
