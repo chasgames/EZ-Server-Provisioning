@@ -4,13 +4,15 @@
 #have command line options for installing certain apps ? eg ./test.sh --docker 
 #curl -s https://raw.githubusercontent.com/chasgames/EZ-Server-Provisioning/master/testdialog.sh | bash
 source <(curl -s https://raw.githubusercontent.com/chasgames/EZ-Server-Provisioning/master/questions.sh)
-echo "You have decided: $docker_choice"
+if $cancel_catch -eq 1; then
+    echo "ABORT ABORT"
+fi
 echo $testing
 echo $hostname_choice
 echo $rootpw_choice
 echo $newusr_choice
 echo $newusrpw_choice
-echo $docker_choice
+echo "You have decided: $docker_choice"
 read -s -p "yo whats up : " lolwhat
     # First Update all packages -y for no interactive
     echo "Congratulations for choosing the best linux distribution"
