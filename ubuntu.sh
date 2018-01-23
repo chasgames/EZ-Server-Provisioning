@@ -8,6 +8,7 @@ echo $testing
 echo $docker_choice
 echo $DOCKER_CHOICE
 echo $response
+echo $result
     # First Update all packages -y for no interactive
     echo "Congratulations for choosing the best linux distribution"
     apt-get update -y
