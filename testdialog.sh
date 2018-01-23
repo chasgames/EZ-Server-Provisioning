@@ -28,4 +28,4 @@ echo $result $exitcode;
 export testing="thisisatest"
 export docker_choice=$docker_choice
 export response
-export result
+export result="the result is $result"
