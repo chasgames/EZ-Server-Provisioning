@@ -7,9 +7,8 @@ source <(curl -s https://raw.githubusercontent.com/chasgames/EZ-Server-Provision
 echo "You have decided: $docker_choice"
 echo $testing
 echo $docker_choice
-echo $DOCKER_CHOICE
-echo $response
 echo $choiceone
+read -p "yo whats up : " lolwhat
     # First Update all packages -y for no interactive
     echo "Congratulations for choosing the best linux distribution"
     apt-get update -y
