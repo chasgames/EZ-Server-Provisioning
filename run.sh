@@ -1,13 +1,6 @@
-
-
 #!/bin/bash
 
-#TODO have singluar software list as a variable ? 
-#have command line options for installing certain apps ? eg ./test.sh --docker 
 
-
-#detect distro
-#might have to change this, dont think it is default on ubuntu
 echo "Please make sure you are Root user because we need it."
 echo "Detecting Linux Distro"
 if cat /etc/*-release | grep ubuntu >/dev/null; then
@@ -15,7 +8,7 @@ if cat /etc/*-release | grep ubuntu >/dev/null; then
 echo "Ubuntu Provisioning"
 curl -L https://raw.githubusercontent.com/chasgames/EZ-Server-Provisioning/master/ubuntu.sh | bash
 
-elif cat /etc/*-release | grep centos >/dev/null;
+elif cat /etc/*-release | grep centos >/dev/null; then
 
 echo "CentOS Provisioning"
 curl -L https://raw.githubusercontent.com/chasgames/EZ-Server-Provisioning/master/centos.sh | bash
