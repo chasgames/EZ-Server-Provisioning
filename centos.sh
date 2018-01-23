@@ -49,8 +49,6 @@
      usermod -aG wheel $NAME
      echo I have added a the user $NAME
     else
-     echo ok no user for you   
-   fi 
  
     
     if [[ $docker_choice == "yes" ]]
