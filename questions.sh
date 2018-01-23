@@ -2,7 +2,7 @@ exec 3>&1;
 hostname_choice=$(dialog --inputbox "Enter your hostname (e.g dedust2)" 0 0 2>&1 1>&3);
 rootpw_choice=$(dialog --inputbox "Change the root password" 0 0 2>&1 1>&3);
 newusr_choice=$(dialog --inputbox "Create your user (e.g Charlie)" 0 0 2>&1 1>&3);
-newusrpw_choice=$(dialog --title aTitle --passwordbox --insecure "Enter the password for $newusr_choice" 0 0 2>&1 1>&3);
+newusrpw_choice=$(dialog --passwordbox --insecure "Enter the password for $newusr_choice" 0 0 2>&1 1>&3);
 exitcode=$?;
 exec 3>&-;
 #echo $result $exitcode;
