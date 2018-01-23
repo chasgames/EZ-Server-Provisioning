@@ -24,17 +24,11 @@
     #the y/n needs to be able to accept yes and no and Y and N
 
 
-    echo "do you want to make a user ? [y/n]" #in quotes because [] seems to break things
-
-    #read reads user input in this case it gets user input and puts it into the MAKEAUSER variable
-    read MAKEAUSER   
-
-
-
    echo "do you want to make a user ? [y/n]" #in quotes because [] seems to break things
 
     #read reads user input in this case it gets user input and puts it into the MAKEAUSER variable
-    read Makeauser  
+   read Makeauser 
+
 
 
 
@@ -48,7 +42,7 @@
      echo making the user a super user
      usermod -aG wheel $NAME
      echo I have added a the user $NAME
-    else
+fi
  
     
     if [[ $docker_choice == "yes" ]]
