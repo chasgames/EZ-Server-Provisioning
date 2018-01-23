@@ -12,7 +12,7 @@
     yum install -y epel-release > /dev/null
 
 
-    SOFTWARE_LIST="screen vim  wget links curl iftop iotop "
+    SOFTWARE_LIST="dialog screen vim  wget links curl iftop iotop "
 
 
     echo installing sane software

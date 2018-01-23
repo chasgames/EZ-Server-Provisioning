@@ -25,3 +25,7 @@ Debugging:
 
 docker run -i -t ubuntu /bin/bash
 apt-get update -y && apt-get install curl dialog -y
+
+
+docker run -i -t centos /bin/bash
+
