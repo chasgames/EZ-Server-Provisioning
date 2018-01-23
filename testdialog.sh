@@ -25,7 +25,8 @@ exitcode=$?;
 exec 3>&-;
 echo $result $exitcode;
 
+choiceone="the result is $result"
 export testing="thisisatest"
 export docker_choice=$docker_choice
 export response
-export result="the result is $result"
+export choiceone
