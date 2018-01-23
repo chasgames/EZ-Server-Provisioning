@@ -21,3 +21,7 @@ was created during earlier part of the script
 
 Can this do auto provision of linux kernel 
 
+Debugging:
+
+docker run -i -t ubuntu /bin/bash
+
