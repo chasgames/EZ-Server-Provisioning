@@ -20,4 +20,4 @@ if [[ $docker_choice == "yes" ]]
 fi
 
 export testing="thisisatest"
-export docker_choice
+export docker_choice=$docker_choice
