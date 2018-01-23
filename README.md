@@ -29,3 +29,6 @@ apt-get update -y && apt-get install curl dialog -y
 
 docker run -i -t centos /bin/bash
 
+
+Interesting Notes:
+curl -s http://server/path/script.sh | bash /dev/stdin arg1 arg2
