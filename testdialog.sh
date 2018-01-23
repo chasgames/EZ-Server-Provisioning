@@ -20,13 +20,11 @@ if [[ $docker_choice == "yes" ]]
 fi
 
 exec 3>&1;
-result=$(dialog --inputbox test 0 0 2>&1 1>&3);
+result=$(dialog --inputbox "Enter your hostname" 0 0 2>&1 1>&3);
 exitcode=$?;
 exec 3>&-;
 echo $result $exitcode;
 
-choiceone="the result is $result"
 export testing="can't believe this works"
 export docker_choice=$docker_choice
-export response
-export choiceone
+export hostname_choice=$result

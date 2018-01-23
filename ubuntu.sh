@@ -2,13 +2,13 @@
 
 #TODO have singluar software list as a variable ? 
 #have command line options for installing certain apps ? eg ./test.sh --docker 
-curl -s https://raw.githubusercontent.com/chasgames/EZ-Server-Provisioning/master/testdialog.sh | bash
+#curl -s https://raw.githubusercontent.com/chasgames/EZ-Server-Provisioning/master/testdialog.sh | bash
+source <(curl -s https://raw.githubusercontent.com/chasgames/EZ-Server-Provisioning/master/testdialog.sh)
 echo "You have decided: $docker_choice"
 echo $testing
 echo $docker_choice
-echo $DOCKER_CHOICE
-echo $response
-echo $choiceone
+echo $hostname_choice
+read -p "yo whats up : " lolwhat
     # First Update all packages -y for no interactive
     echo "Congratulations for choosing the best linux distribution"
     apt-get update -y
