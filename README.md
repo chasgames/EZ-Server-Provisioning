@@ -19,5 +19,5 @@ Some way to change the user when installing the authenticator to the user that
 was created during earlier part of the script
 
 
-
+Can this do auto provision of linux kernel 
 
