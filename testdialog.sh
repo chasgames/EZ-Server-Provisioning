@@ -14,12 +14,9 @@ case $response in
 esac
 
 
-
-
-
-
 if [[ $docker_choice == "yes" ]]
     then
         echo "installing Docker"
 fi
 
+export docker_choice
