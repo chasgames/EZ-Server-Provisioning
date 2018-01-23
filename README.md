@@ -38,3 +38,6 @@ https://askubuntu.com/questions/491509/how-to-get-dialog-box-input-directed-to-a
 
 Things that did not help:
 Mark
+
+Problems encountered:
+With the curl bash method, all bash "read"s are bypassed, had to use dialog instead
