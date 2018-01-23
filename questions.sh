@@ -20,10 +20,14 @@ if [[ $docker_choice == "yes" ]]
 fi
 
 exec 3>&1;
-result=$(dialog --inputbox "Enter your hostname" 0 0 2>&1 1>&3);
+hostname_choice=$(dialog --inputbox "Enter your hostname (e.g dedust2)" 0 0 2>&1 1>&3);
+rootpw_choice=$(dialog --inputbox "Change the root password" 0 0 2>&1 1>&3);
+newusr_choice=$(dialog --inputbox "Create your user (e.g Charlie)" 0 0 2>&1 1>&3);
+newusrpw_choice=$(dialog --passwordbox "Enter the password for $newusr_choice" 0 0 2>&1 1>&3);
+result=$(dialog --inputbox "Enter your hostname (e.g dedust2)" 0 0 2>&1 1>&3);
 exitcode=$?;
 exec 3>&-;
-echo $result $exitcode;
+#echo $result $exitcode;
 
 export testing="can't believe this works"
 export docker_choice=$docker_choice
