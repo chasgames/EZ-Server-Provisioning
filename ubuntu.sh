@@ -5,6 +5,8 @@
 curl -s https://raw.githubusercontent.com/chasgames/EZ-Server-Provisioning/master/testdialog.sh | bash
 echo "You have decided: $docker_choice"
 echo $testing
+echo $docker_choice
+echo $DOCKER_CHOICE
     # First Update all packages -y for no interactive
     echo "Congratulations for choosing the best linux distribution"
     apt-get update -y
