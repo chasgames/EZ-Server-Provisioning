@@ -32,3 +32,12 @@ docker run -i -t centos /bin/bash
 
 Interesting Notes:
 curl -s http://server/path/script.sh | bash /dev/stdin arg1 arg2
+
+Things that helped:
+https://askubuntu.com/questions/491509/how-to-get-dialog-box-input-directed-to-a-variable
+
+Things that did not help:
+Mark
+
+Problems encountered:
+With the curl bash method, all bash "read"s are bypassed, had to use dialog instead
