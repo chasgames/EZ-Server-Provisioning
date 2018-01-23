@@ -21,3 +21,4 @@ fi
 
 export testing="thisisatest"
 export docker_choice=$docker_choice
+export response
