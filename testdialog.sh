@@ -8,7 +8,9 @@ dialog --title "do you want this app" \
 # 255 means user hit [Esc] key.
 response=$?
 case $response in
-   0) docker_choice="yes";;
+   0) docker_choice="yes"
+      echo "installing Docker"
+      ;;
    1) docker_choice="no";;
    255) echo "[ESC] key pressed.";;
 esac
@@ -18,8 +20,8 @@ esac
 
 
 
-if [[ $docker_choice == "yes" ]]
-    then
-        echo "installing Docker"
-fi
+#if [[ $docker_choice == "yes" ]]
+#    then
+#        echo "installing Docker"
+#fi
 
