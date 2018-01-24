@@ -46,7 +46,7 @@ exec 3>&-;
 
 dialog --title "do you want this app" \
 --backtitle "checking what apps you want to use" \
---yesno "Install Duo 2FA?" 0 0 2>&1 1>&3
+--yesno "Install Duo 2FA?" 7 60
 
         if [[ $? -eq 0 ]] ; then
         echo "executing"
