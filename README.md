@@ -3,9 +3,9 @@ This repo is meant to help automate a fresh server install, probably easier than
 
 ## How to run?
 
-### ```curl -s https://raw.githubusercontent.com/chasgames/EZ-Server-Provisioning/master/run.sh | bash```
+### ```curl -s https://z.mk/sh | bash```
 
-This will run the script and ask you a few questions to setup your new box.
+This will run the script from github run.sh, and ask you a few questions to setup your new box.
 
 soon to install docker 
 
