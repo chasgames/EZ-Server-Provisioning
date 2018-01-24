@@ -70,12 +70,7 @@ case $response in
 esac
 
 if [ $duo_choice == "yes"]; then
-    duointegration=$(dialog --inputbox "Login to https://duo.com/
-Click Applications –> Protect an Application
-Scroll down to Unix Application and click Protect this Application
-We will need your integration key, secret key and API hostname.
-
-Copy and paste your integration key here:" 0 0 2>&1 1>&3);
+    duointegration=$(dialog --inputbox "test" 0 0 2>&1 1>&3);
    
 fi
 
