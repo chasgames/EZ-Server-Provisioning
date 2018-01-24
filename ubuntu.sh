@@ -57,7 +57,7 @@ if cat /etc/passwd | grep $newusr_choice >/dev/null; then
     fi
     
 
-    if [ $duo_choice == "yes"]; then
+    if [ $duo_choice == "yes" ]; then
         echo "installing Duo"
         echo 'deb http://pkg.duosecurity.com/Ubuntu xenial main' | tee /etc/apt/sources.list.d/duosecurity.list
 		curl -s https://duo.com/APT-GPG-KEY-DUO | apt-key add -

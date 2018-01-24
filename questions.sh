@@ -70,20 +70,13 @@ case $response in
 esac
 
 if [ $duo_choice == "yes"]; then
-    dialog --title "do you want this app" \
---backtitle "checking what apps you want to use" \
---yesno "Login to https://duo.com/
+    duointegration=$(dialog --inputbox "Login to https://duo.com/
 Click Applications –> Protect an Application
 Scroll down to Unix Application and click Protect this Application
 We will need your integration key, secret key and API hostname.
 
-Copy and paste your integration key here:" 7 60
-response=$?
-case $response in
-   0) duo_choice="yes";;
-   1) duo_choice="no";;
-   255) cancel_catch=1;;
-esac
+Copy and paste your integration key here:" 0 0 2>&1 1>&3);
+   
 fi
 
 
