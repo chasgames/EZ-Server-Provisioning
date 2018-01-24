@@ -48,17 +48,19 @@ if cat /etc/passwd | grep $newusr_choice >/dev/null; then
     
     if [ $docker_choice == "yes" ]; then
         echo "installing Docker"
-        apt-get install apt-transport-https ca-certificates software-properties-common python-pip -y
+        apt install apt-transport-https ca-certificates software-properties-common python-pip -y
         curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
-        apt-get update
-        apt-get install docker-ce -y
+        apt update
+        apt install docker-ce -y
         usermod -aG docker $newusr_choice
         pip install docker-compose
     fi
     
-    read -p "Do you want Duo? [y/n] " -n 1 -r
-    echo    # (optional) move to a new line
-    if [[ $REPLY =~ ^[Yy]$ ]]
-    then
+
+    if [ $duo_choice == "yes"]; then
         echo "installing Duo"
+        echo 'deb http://pkg.duosecurity.com/Ubuntu xenial main' | tee /etc/apt/sources.list.d/duosecurity.list
+		curl -s https://duo.com/APT-GPG-KEY-DUO | apt-key add -
+		apt update -y
+		apt install duo-unix
     fi

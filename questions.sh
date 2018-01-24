@@ -46,7 +46,7 @@ exec 3>&-;
 
 dialog --title "do you want this app" \
 --backtitle "checking what apps you want to use" \
---yesno "do you want docker" 7 60
+--yesno "Install Docker?" 7 60
 
 # Get exit status
 # 0 means user hit [yes] button.
@@ -56,13 +56,34 @@ response=$?
 case $response in
    0) docker_choice="yes";;
    1) docker_choice="no";;
-   255) docker_choice="ESC KEY PRESSED ABORT THE MISSION";;
+   255) cancel_catch=1;;
 esac
 
-if [[ $docker_choice == "yes" ]]
-    then
-        echo "installing Docker"
-fi
+dialog --title "do you want this app" \
+--backtitle "checking what apps you want to use" \
+--yesno "Install Duo 2FA?" 7 60
+response=$?
+case $response in
+   0) duo_choice="yes";;
+   1) duo_choice="no";;
+   255) cancel_catch=1;;
+esac
+
+if [ $duo_choice == "yes"]; then
+    dialog --title "do you want this app" \
+--backtitle "checking what apps you want to use" \
+--yesno "Login to https://duo.com/
+Click Applications –> Protect an Application
+Scroll down to Unix Application and click Protect this Application
+Make a note of your integration key, secret key and API hostname." 7 60
+response=$?
+case $response in
+   0) duo_choice="yes";;
+   1) duo_choice="no";;
+   255) cancel_catch=1;;
+esac
+
+
 
 export cancel_catch=$cancel_catch
 export testing="can't believe this works"
@@ -72,3 +93,4 @@ export rootpwconfirm_choice=$rootpwconfirm_choice
 export newusr_choice=$newusr_choice
 export newusrpw_choice=$newusrpw_choice
 export docker_choice=$docker_choice
+export duo_choice=$duo_choice
