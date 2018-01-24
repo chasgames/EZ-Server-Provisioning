@@ -1,8 +1,7 @@
 # Server provisiong
 This repo is meant to help automate a fresh server install, probably easier than ansible. :smile:
 
-Chas maintains Ubuntu.sh \n
-Mark maintains Centos.sh
+Chas maintains Ubuntu.sh and Mark maintains Centos.sh
 
 ## How to run?
 
