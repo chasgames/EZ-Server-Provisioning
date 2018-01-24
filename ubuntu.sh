@@ -13,7 +13,7 @@ read -p "yo whats up : " lolwhat
     echo "Congratulations for choosing the best linux distribution"
     apt-get update -y
     apt-get upgrade -y
-    apt-get install htop denyhosts iotop iftop openssh-server vim sudo chrony curl wget -y
+    apt-get install htop denyhosts iotop iftop openssh-server vim sudo tree chrony curl wget -y
     echo "Configuring packages"
     echo "Removing SSH Root Login"
     sed -i '/^PermitRootLogin[ \t]\+\w\+$/{ s//PermitRootLogin no/g; }' /etc/ssh/sshd_config
