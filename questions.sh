@@ -75,13 +75,16 @@ if [ $duo_choice == "yes"]; then
 --yesno "Login to https://duo.com/
 Click Applications –> Protect an Application
 Scroll down to Unix Application and click Protect this Application
-Make a note of your integration key, secret key and API hostname." 7 60
+We will need your integration key, secret key and API hostname.
+
+Copy and paste your integration key here:" 7 60
 response=$?
 case $response in
    0) duo_choice="yes";;
    1) duo_choice="no";;
    255) cancel_catch=1;;
 esac
+fi
 
 
 
