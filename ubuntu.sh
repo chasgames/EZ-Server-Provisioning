@@ -1,8 +1,5 @@
 #!/bin/bash
 
-#TODO have singluar software list as a variable ? 
-#have command line options for installing certain apps ? eg ./test.sh --docker 
-#curl -s https://raw.githubusercontent.com/chasgames/EZ-Server-Provisioning/master/testdialog.sh | bash
 source <(curl -s https://raw.githubusercontent.com/chasgames/EZ-Server-Provisioning/master/questions.sh)
 if [ $cancel_catch -eq 1 ]; then
     echo "ABORT ABORT - You cancelled something"
@@ -20,7 +17,7 @@ echo $rootpwconfirm_choice
 echo $newusr_choice
 echo $newusrpw_choice
 echo "You have decided: $docker_choice"
-read -s -p "yo whats up : " lolwhat
+
     # First Update all packages -y for no interactive
     echo "Congratulations for choosing the best linux distribution"
     apt-get update -y
@@ -32,35 +29,30 @@ read -s -p "yo whats up : " lolwhat
     # Configuring Chrony, way better than NTPd, much more reliable and stays in Sync.
     echo "Maybe add some time sources here"
     
-        #read -s -p "Enter new root password: " rootpassword
-        #read -p "Enter a new user : " username
-        #read -s -p "Enter a password for this new user : " password
 if cat /etc/passwd | grep $newusr_choice >/dev/null; then
             echo "$newusr_choice exists!"
             exit 1
         else
-            #do we really need this ? rootpass=$(perl -e 'print crypt($ARGV[0], "password")' $rootpassword)
-            echo "root:$rootpw_choice" | chpasswd		
-            #pass=$(perl -e 'print crypt($ARGV[0], "password")' $password)
-            #useradd -m -p $newusrpw_choice $newusr_choice
+            echo "root:$rootpw_choice" | chpasswd
             useradd -m $newusr_choice
             echo "$newusr_choice:$newusrpw_choice" | chpasswd
             usermod -aG sudo $newusr_choice
             [ $? -eq 0 ] && echo "User has been added to system.. oh and it's a sudo!" || echo "Failed to add a user!"
         fi
-   
-    #read -p "Set a hostname for your server: (etc.. z.mk) don't use _ " myhostname
+
     hostnamectl set-hostname $hostname_choice
 
     # Need to restart SSH for root password to take affect.
     service ssh restart
     
-
-    read -p "Do you want Docker? [y/n] " -n 1 -r
-    echo    # (optional) move to a new line
-    if [[ $REPLY =~ ^[Yy]$ ]]
-    then
+    if [ $docker_choice -eq 0 ]; then
         echo "installing Docker"
+        apt-get install apt-transport-https ca-certificates software-properties-common python-pip -y
+        curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+        apt-get update
+        apt-get install docker-ce -y
+        usermod -aG docker $newusr_choice
+        pip install docker-compose
     fi
     
     read -p "Do you want Duo? [y/n] " -n 1 -r
