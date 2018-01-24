@@ -4,10 +4,10 @@
 #have command line options for installing certain apps ? eg ./test.sh --docker 
 #curl -s https://raw.githubusercontent.com/chasgames/EZ-Server-Provisioning/master/testdialog.sh | bash
 source <(curl -s https://raw.githubusercontent.com/chasgames/EZ-Server-Provisioning/master/questions.sh)
-#if [ $cancel_catch -eq 1 ]; then
-#    echo "ABORT ABORT"
-#    exit 1
-#fi
+if [ $cancel_catch -eq 1 ]; then
+    echo "ABORT ABORT"
+    exit 1
+fi
 echo $cancel_catch
 echo $testing
 echo $hostname_choice
