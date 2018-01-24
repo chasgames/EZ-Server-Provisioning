@@ -31,7 +31,7 @@ docker run -i -t centos /bin/bash
 
 Interesting Notes:
 curl -s http://server/path/script.sh | bash /dev/stdin arg1 arg2
-
+curl -sL -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/chasgames/EZ-Server-Provisioning/master/ubuntu.sh | bash
 Things that helped:
 https://askubuntu.com/questions/491509/how-to-get-dialog-box-input-directed-to-a-variable
 
