@@ -69,7 +69,9 @@ case $response in
    255) cancel_catch=1;;
 esac
 
+echo "about to execute"
 if [ $duo_choice == "yes" ]; then
+echo "executing"
     duointegration=$(dialog --inputbox "Login to https://duo.com/
 Click Applications –> Protect an Application
 Scroll down to Unix Application and click Protect this Application
