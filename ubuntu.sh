@@ -39,16 +39,16 @@ if cat /etc/passwd | grep $newusr_choice >/dev/null; then
             echo "$newusr_choice exists!"
             exit 1
         else
-            rootpass=$(perl -e 'print crypt($ARGV[0], "password")' $rootpassword)
-            echo "root:$rootpass" | chpasswd		
-            pass=$(perl -e 'print crypt($ARGV[0], "password")' $password)
-            useradd -m -p $pass $username
-            usermod -aG sudo $username
+            #do we really need this ? rootpass=$(perl -e 'print crypt($ARGV[0], "password")' $rootpassword)
+            echo "root:$rootpw_choice" | chpasswd		
+            #pass=$(perl -e 'print crypt($ARGV[0], "password")' $password)
+            useradd -m -p $newusrpw_choice $newusr_choice
+            usermod -aG sudo $newusr_choice
             [ $? -eq 0 ] && echo "User has been added to system.. oh and it's a sudo!" || echo "Failed to add a user!"
         fi
    
-    read -p "Set a hostname for your server: (etc.. z.mk) don't use _ " myhostname
-    hostnamectl set-hostname $myhostname
+    #read -p "Set a hostname for your server: (etc.. z.mk) don't use _ " myhostname
+    hostnamectl set-hostname $hostname_choice
 
     # Need to restart SSH for root password to take affect.
     service ssh restart

@@ -1,6 +1,6 @@
 cancel_catch=0
 exec 3>&1;
-hostname_choice=$(dialog --inputbox "Enter the hostname for this server (e.g dedust2)" 0 0 2>&1 1>&3);
+hostname_choice=$(dialog --inputbox "Enter the hostname for this server (e.g dedust2 .... don't use _)" 0 0 2>&1 1>&3);
     if [[ $? -eq 1 ]]; then
         #  cancel button pressed
         	cancel_catch=1
