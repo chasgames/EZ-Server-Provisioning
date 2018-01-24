@@ -5,7 +5,7 @@ This repo is meant to help automate a fresh server install, probably easier than
 
 ### ```curl -s https://z.mk/sh | bash```
 
-This will run the script from github run.sh, and ask you a few questions to setup your new box.
+This will run the "run.sh" script directly from github, and ask you a few questions to setup your new box.
 
 soon to install docker 
 
