@@ -1,6 +1,25 @@
 #!/bin/bash
 
 cancel_catch=0
+
+#I don't want this to be the first question but there is a bug for some reason i cant put it lower in the script :(
+dialog --title "do you want this app" \
+--backtitle "checking what apps you want to use" \
+--yesno "Install Duo 2FA?" 7 60
+
+        if [[ $? -eq 0 ]] ; then
+        echo "executing"
+            duointegration=$(dialog --inputbox "Login to https://duo.com/
+        Click Applications –> Protect an Application
+        Scroll down to Unix Application and click Protect this Application
+        We will need your integration key, secret key and API hostname.
+
+        Copy and paste your integration key here:" 0 0 2>&1 1>&3);
+            duosecret=$(dialog --inputbox "Copy and paste your secret key here:" 0 0 2>&1 1>&3);
+            duoAPIhostname=$(dialog --inputbox "Copy and paste your API hostname here:" 0 0 2>&1 1>&3);
+        fi
+
+
 exec 3>&1;
 hostname_choice=$(dialog --inputbox "Enter the hostname for this server (e.g dedust2 .... don't use _)" 0 0 2>&1 1>&3);
     if [[ $? -eq 1 ]]; then
@@ -42,23 +61,9 @@ newusrpw_choice=$(dialog --insecure --passwordbox "Enter the password for $newus
         #  timeout
         	cancel_catch=1
     fi
-    dialog --title "do you want this app" \
---backtitle "checking what apps you want to use" \
---yesno "Install Duo 2FA?" 7 60
-
-        if [[ $? -eq 0 ]] ; then
-        echo "executing"
-            duointegration=$(dialog --inputbox "Login to https://duo.com/
-        Click Applications –> Protect an Application
-        Scroll down to Unix Application and click Protect this Application
-        We will need your integration key, secret key and API hostname.
-
-        Copy and paste your integration key here:" 0 0 2>&1 1>&3);
-        fi
 exitcode=$?;
 exec 3>&-;
 #echo $result $exitcode;
-
 
 dialog --title "do you want this app" \
 --backtitle "checking what apps you want to use" \
