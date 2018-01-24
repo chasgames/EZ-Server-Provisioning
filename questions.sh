@@ -56,14 +56,16 @@ dialog --title "do you want this app" \
 
         if [[ $? -eq 0 ]] ; then
         echo "executing"
+        exec 3>&1;
             duointegration=$(dialog --inputbox "Login to https://duo.com/
         Click Applications –> Protect an Application
         Scroll down to Unix Application and click Protect this Application
         We will need your integration key, secret key and API hostname.
 
-        Copy and paste your integration key here:" 0 0);
-            duosecret=$(dialog --inputbox "Copy and paste your secret key here:" 0 0);
-            duoAPIhostname=$(dialog --inputbox "Copy and paste your API hostname here:" 0 0);
+        Copy and paste your integration key here:" 0 0 2>&1 1>&3);
+            duosecret=$(dialog --inputbox "Copy and paste your secret key here:" 0 0 2>&1 1>&3);
+            duoAPIhostname=$(dialog --inputbox "Copy and paste your API hostname here:" 0 0 2>&1 1>&3);
+            exec 3>&-;
         fi
 
 
