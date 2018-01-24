@@ -25,7 +25,7 @@ read -s -p "yo whats up : " lolwhat
     echo "Congratulations for choosing the best linux distribution"
     apt-get update -y
     apt-get upgrade -y
-    apt-get install htop denyhosts iotop iftop openssh-server vim sudo tree chrony curl wget -y
+    apt-get install htop denyhosts iotop iftop openssh-server vim sudo tree chrony curl wget man -y
     echo "Configuring packages"
     echo "Removing SSH Root Login"
     sed -i '/^PermitRootLogin[ \t]\+\w\+$/{ s//PermitRootLogin no/g; }' /etc/ssh/sshd_config
@@ -42,7 +42,9 @@ if cat /etc/passwd | grep $newusr_choice >/dev/null; then
             #do we really need this ? rootpass=$(perl -e 'print crypt($ARGV[0], "password")' $rootpassword)
             echo "root:$rootpw_choice" | chpasswd		
             #pass=$(perl -e 'print crypt($ARGV[0], "password")' $password)
-            useradd -m -p $newusrpw_choice $newusr_choice
+            #useradd -m -p $newusrpw_choice $newusr_choice
+            useradd -m $newusr_choice
+            echo "$newusr_choice:$newusrpw_choice" | chpasswd
             usermod -aG sudo $newusr_choice
             [ $? -eq 0 ] && echo "User has been added to system.. oh and it's a sudo!" || echo "Failed to add a user!"
         fi
