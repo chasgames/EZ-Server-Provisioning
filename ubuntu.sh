@@ -45,7 +45,7 @@ if cat /etc/passwd | grep $newusr_choice >/dev/null; then
     # Need to restart SSH for root password to take affect.
     service ssh restart
     
-    if [ $docker_choice -eq 0 ]; then
+    if [ $docker_choice == "yes" ]; then
         echo "installing Docker"
         apt-get install apt-transport-https ca-certificates software-properties-common python-pip -y
         curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
