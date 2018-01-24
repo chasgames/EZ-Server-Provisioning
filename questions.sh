@@ -44,9 +44,9 @@ exitcode=$?;
 exec 3>&-;
 #echo $result $exitcode;
 
-$(dialog --title "do you want this app" \
+dialog --title "do you want this app" \
 --backtitle "checking what apps you want to use" \
---yesno "Install Duo 2FA?" 0 0 2>&1 1>&3);
+--yesno "Install Duo 2FA?" 0 0 2>&1 1>&3
 
         if [[ $? -eq 0 ]] ; then
         echo "executing"
