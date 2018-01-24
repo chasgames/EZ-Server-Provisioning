@@ -1,14 +1,14 @@
 # Server provisiong
 This repo is meant to help automate a fresh server install, probably easier than ansible. :smile:
 
+Chas maintains Ubuntu.sh
+Mark maintains Centos.sh
+
 ## How to run?
 
 ### ```curl -sL https://z.mk/sh | bash```
 
 This will run the "run.sh" script directly from github, and ask you a few questions to setup your new box.
-
-soon to install docker 
-
 
 ## ToDo List:
 - [ ] ToDos
