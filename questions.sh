@@ -42,10 +42,7 @@ newusrpw_choice=$(dialog --insecure --passwordbox "Enter the password for $newus
         #  timeout
         	cancel_catch=1
     fi
-exitcode=$?;
-exec 3>&-;
-#echo $result $exitcode;
-dialog --title "do you want this app" \
+    dialog --title "do you want this app" \
 --backtitle "checking what apps you want to use" \
 --yesno "Install Duo 2FA?" 7 60
 
@@ -58,7 +55,11 @@ dialog --title "do you want this app" \
 
         Copy and paste your integration key here:" 0 0 2>&1 1>&3);
         fi
-        
+exitcode=$?;
+exec 3>&-;
+#echo $result $exitcode;
+
+
 dialog --title "do you want this app" \
 --backtitle "checking what apps you want to use" \
 --yesno "Install Docker?" 7 60
