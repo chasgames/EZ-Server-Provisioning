@@ -36,6 +36,10 @@ if [[ $docker_choice == "yes" ]]
         echo "installing Docker"
 fi
 
+if [ $cancel_catch -eq 1 ]; then
+    echo "ABORT ABORT"
+    exit 1
+fi
 export cancel_catch=$cancel_catch
 export testing="can't believe this works"
 export hostname_choice=$hostname_choice
