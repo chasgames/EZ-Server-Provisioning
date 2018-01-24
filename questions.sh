@@ -17,8 +17,29 @@ rootpw_choice=$(dialog --insecure --passwordbox "Change the root password" 0 0 2
         	cancel_catch=1
     fi
 rootpwconfirm_choice=$(dialog --insecure --passwordbox "Enter the password again" 0 0 2>&1 1>&3);
+    if [[ $? -eq 1 ]]; then
+        #  cancel button pressed
+        	cancel_catch=1
+    elif [[ $? -eq 5 ]]; then
+        #  timeout
+        	cancel_catch=1
+    fi
 newusr_choice=$(dialog --inputbox "Create your user (e.g Charlie)" 0 0 2>&1 1>&3);
+    if [[ $? -eq 1 ]]; then
+        #  cancel button pressed
+        	cancel_catch=1
+    elif [[ $? -eq 5 ]]; then
+        #  timeout
+        	cancel_catch=1
+    fi
 newusrpw_choice=$(dialog --insecure --passwordbox "Enter the password for $newusr_choice" 0 0 2>&1 1>&3);
+    if [[ $? -eq 1 ]]; then
+        #  cancel button pressed
+        	cancel_catch=1
+    elif [[ $? -eq 5 ]]; then
+        #  timeout
+        	cancel_catch=1
+    fi
 exitcode=$?;
 exec 3>&-;
 #echo $result $exitcode;

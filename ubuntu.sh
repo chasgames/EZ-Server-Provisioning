@@ -5,7 +5,11 @@
 #curl -s https://raw.githubusercontent.com/chasgames/EZ-Server-Provisioning/master/testdialog.sh | bash
 source <(curl -s https://raw.githubusercontent.com/chasgames/EZ-Server-Provisioning/master/questions.sh)
 if [ $cancel_catch -eq 1 ]; then
-    echo "ABORT ABORT"
+    echo "ABORT ABORT - You cancelled something"
+    exit 1
+fi
+if [ $rootpw_choice != $rootpwconfirm_choice ]; then
+    echo "ABORT ABORT - Root password mistype"
     exit 1
 fi
 echo $cancel_catch
@@ -28,11 +32,11 @@ read -s -p "yo whats up : " lolwhat
     # Configuring Chrony, way better than NTPd, much more reliable and stays in Sync.
     echo "Maybe add some time sources here"
     
-    read -s -p "Enter new root password: " rootpassword
-        read -p "Enter a new user : " username
-        read -s -p "Enter a password for this new user : " password
-if cat /etc/passwd | grep $username >/dev/null; then
-            echo "$username exists!"
+        #read -s -p "Enter new root password: " rootpassword
+        #read -p "Enter a new user : " username
+        #read -s -p "Enter a password for this new user : " password
+if cat /etc/passwd | grep $newusr_choice >/dev/null; then
+            echo "$newusr_choice exists!"
             exit 1
         else
             rootpass=$(perl -e 'print crypt($ARGV[0], "password")' $rootpassword)
