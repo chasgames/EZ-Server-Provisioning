@@ -49,7 +49,7 @@ newusrpw_choice=$(dialog --insecure --passwordbox "Enter the password for $newus
 exitcode=$?;
 exec 3>&-;
 #echo $result $exitcode;
-exec 3>&1;
+
 dialog --title "do you want this app" \
 --backtitle "checking what apps you want to use" \
 --yesno "Install Duo 2FA?" 7 60
@@ -62,10 +62,10 @@ dialog --title "do you want this app" \
         We will need your integration key, secret key and API hostname.
 
         Copy and paste your integration key here:" 0 0 2>&1 1>&3);
-            duosecret=$(dialog --inputbox "Copy and paste your secret key here:" 0 0 2>&1 1>&3);
-            duoAPIhostname=$(dialog --inputbox "Copy and paste your API hostname here:" 0 0 2>&1 1>&3);
+            duosecret=$(dialog --inputbox "Copy and paste your secret key here:" 0 0);
+            duoAPIhostname=$(dialog --inputbox "Copy and paste your API hostname here:" 0 0);
         fi
-exec 3>&-;
+
 
 dialog --title "do you want this app" \
 --backtitle "checking what apps you want to use" \
