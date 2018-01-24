@@ -46,20 +46,6 @@ exec 3>&-;
 
 dialog --title "do you want this app" \
 --backtitle "checking what apps you want to use" \
---yesno "Install Duo 2FA?" 7 60
-
-        if [[ $? -eq 0 ]] ; then
-        echo "executing"
-            duointegration=$(dialog --inputbox "Login to https://duo.com/
-        Click Applications –> Protect an Application
-        Scroll down to Unix Application and click Protect this Application
-        We will need your integration key, secret key and API hostname.
-
-        Copy and paste your integration key here:" 0 0 2>&1 1>&3);
-        fi
-
-dialog --title "do you want this app" \
---backtitle "checking what apps you want to use" \
 --yesno "Install Docker?" 7 60
 
 # Get exit status
@@ -73,6 +59,19 @@ case $response in
    255) cancel_catch=1;;
 esac
 
+dialog --title "do you want this app" \
+--backtitle "checking what apps you want to use" \
+--yesno "Install Duo 2FA?" 7 60
+
+        if [[ $? -eq 0 ]] ; then
+        echo "executing"
+            duointegration=$(dialog --inputbox "Login to https://duo.com/
+        Click Applications –> Protect an Application
+        Scroll down to Unix Application and click Protect this Application
+        We will need your integration key, secret key and API hostname.
+
+        Copy and paste your integration key here:" 0 0 2>&1 1>&3);
+        fi
 
 
 export cancel_catch=$cancel_catch
