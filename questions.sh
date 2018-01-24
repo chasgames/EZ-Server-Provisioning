@@ -64,7 +64,7 @@ dialog --title "do you want this app" \
 --yesno "Install Duo 2FA?" 7 60
 response=$?
 
-        if [ response -eq 0 ]; then
+        if [ $response -eq 0 ]; then
         echo "executing"
             duointegration=$(dialog --inputbox "Login to https://duo.com/
         Click Applications –> Protect an Application
