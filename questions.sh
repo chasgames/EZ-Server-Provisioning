@@ -33,15 +33,7 @@ newusr_choice=$(dialog --inputbox "Create your user (e.g Charlie)" 0 0 2>&1 1>&3
         	cancel_catch=1
     fi
 newusrpw_choice=$(dialog --insecure --passwordbox "Enter the password for $newusr_choice" 0 0 2>&1 1>&3);
-    if [[ $? -eq 0 ]]; then
-        echo "you clearly want duo"
-    duointegration=$(dialog --inputbox "Login to https://duo.com/
-Click Applications –> Protect an Application
-Scroll down to Unix Application and click Protect this Application
-We will need your integration key, secret key and API hostname.
-
-Copy and paste your integration key here:" 0 0 2>&1 1>&3);
-    elif [[ $? -eq 1 ]]; then
+    if [[ $? -eq 1 ]]; then
         #  cancel button pressed
         	cancel_catch=1
     elif [[ $? -eq 5 ]]; then
@@ -72,10 +64,27 @@ dialog --title "do you want this app" \
 --yesno "Install Duo 2FA?" 7 60
 response=$?
 case $response in
-   0) duo_choice="yes";;
+   0) duointegration=$(dialog --inputbox "Login to https://duo.com/
+        Click Applications –> Protect an Application
+        Scroll down to Unix Application and click Protect this Application
+        We will need your integration key, secret key and API hostname.
+
+        Copy and paste your integration key here:" 0 0 2>&1 1>&3);
+;;
    1) duo_choice="no";;
    255) cancel_catch=1;;
 esac
+
+        echo "about to execute"
+        if [ $duo_choice == "yes" ]; then
+        echo "executing"
+            duointegration=$(dialog --inputbox "Login to https://duo.com/
+        Click Applications –> Protect an Application
+        Scroll down to Unix Application and click Protect this Application
+        We will need your integration key, secret key and API hostname.
+
+        Copy and paste your integration key here:" 0 0 2>&1 1>&3);
+        fi
 
 
 
