@@ -41,9 +41,6 @@ newusrpw_choice=$(dialog --insecure --passwordbox "Enter the password for $newus
         	cancel_catch=1
     fi
 exitcode=$?;
-exec 3>&-;
-#echo $result $exitcode;
-
 
 dialog --title "do you want this app" \
 --backtitle "checking what apps you want to use" \
@@ -58,6 +55,10 @@ dialog --title "do you want this app" \
 
         Copy and paste your integration key here:" 0 0 2>&1 1>&3);
         fi
+        
+exec 3>&-;
+#echo $result $exitcode;
+
 
 dialog --title "do you want this app" \
 --backtitle "checking what apps you want to use" \
