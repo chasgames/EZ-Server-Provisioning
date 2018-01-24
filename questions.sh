@@ -63,19 +63,16 @@ dialog --title "do you want this app" \
 --backtitle "checking what apps you want to use" \
 --yesno "Install Duo 2FA?" 7 60
 response=$?
-case $response in
-   0) duointegration=$(dialog --inputbox "Login to https://duo.com/
+
+        if [ response -eq 0 ]; then
+        echo "executing"
+            duointegration=$(dialog --inputbox "Login to https://duo.com/
         Click Applications –> Protect an Application
         Scroll down to Unix Application and click Protect this Application
         We will need your integration key, secret key and API hostname.
 
         Copy and paste your integration key here:" 0 0 2>&1 1>&3);
-;;
-   1) duo_choice="no";;
-   255) cancel_catch=1;;
-esac
-
-
+        fi
 
 
 
