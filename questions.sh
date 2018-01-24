@@ -5,9 +5,6 @@ rootpw_choice=$(dialog --insecure --passwordbox "Change the root password" 0 0 2
 rootpwconfirm_choice=$(dialog --insecure --passwordbox "Enter the password again" 0 0 2>&1 1>&3);
 newusr_choice=$(dialog --inputbox "Create your user (e.g Charlie)" 0 0 2>&1 1>&3);
 newusrpw_choice=$(dialog --insecure --passwordbox "Enter the password for $newusr_choice" 0 0 2>&1 1>&3);
-exitcode=$?;
-exec 3>&-;
-#echo $result $exitcode;
     if [[ $? -eq 1 ]]; then
         #  cancel button pressed
         	cancel_catch=1
@@ -15,6 +12,9 @@ exec 3>&-;
         #  timeout
         	cancel_catch=1
     fi
+exitcode=$?;
+exec 3>&-;
+#echo $result $exitcode;
 
 dialog --title "do you want this app" \
 --backtitle "checking what apps you want to use" \
