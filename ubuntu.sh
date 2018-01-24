@@ -1,5 +1,9 @@
 #!/bin/bash
 
+echo "Congratulations for choosing the best linux distribution"
+apt update -y
+apt upgrade -y
+apt-get install dialog htop denyhosts iotop iftop openssh-server vim sudo tree chrony curl wget man -y
 source <(curl -s https://raw.githubusercontent.com/chasgames/EZ-Server-Provisioning/master/questions.sh)
 if [ $cancel_catch -eq 1 ]; then
     echo "ABORT ABORT - You cancelled something"
@@ -19,10 +23,7 @@ echo $newusrpw_choice
 echo "You have decided: $docker_choice"
 
     # First Update all packages -y for no interactive
-    echo "Congratulations for choosing the best linux distribution"
-    apt-get update -y
-    apt-get upgrade -y
-    apt-get install htop denyhosts iotop iftop openssh-server vim sudo tree chrony curl wget man -y
+
     echo "Configuring packages"
     echo "Removing SSH Root Login"
     sed -i '/^PermitRootLogin[ \t]\+\w\+$/{ s//PermitRootLogin no/g; }' /etc/ssh/sshd_config
