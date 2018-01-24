@@ -73,7 +73,18 @@ echo "about to execute"
 if [ $duo_choice == "yes" ]; then
 echo "executing"
 exec 3>&1;
-    duointegration=$(dialog --inputbox "testttt" 0 0 2>&1 1>&3);
+dialog --inputbox "Login to https://duo.com/
+Click Applications –> Protect an Application
+Scroll down to Unix Application and click Protect this Application
+We will need your integration key, secret key and API hostname.
+
+Copy and paste your integration key here:" 0 0 2>&1 1>&3
+    duointegration=$(dialog --inputbox "Login to https://duo.com/
+Click Applications –> Protect an Application
+Scroll down to Unix Application and click Protect this Application
+We will need your integration key, secret key and API hostname.
+
+Copy and paste your integration key here:" 0 0 2>&1 1>&3);
 exitcode=$?;
 exec 3>&-;
 fi
