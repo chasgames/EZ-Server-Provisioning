@@ -20,6 +20,7 @@ echo $rootpw_choice
 echo $rootpwconfirm_choice
 echo $newusr_choice
 echo $newusrpw_choice
+echo $duo_choice
 echo "You have decided: $docker_choice"
 
     # First Update all packages -y for no interactive
