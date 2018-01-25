@@ -1,7 +1,15 @@
-# Server provisiong
-This repo is meant to help automate a fresh server install, probably easier than ansible. :smile:
+# What is this?
+This script is meant to help automate a fresh server install, probably easier than ansible. :smile:
 
 Chas maintains Ubuntu.sh and Mark maintains Centos.sh
+
+Ubuntu.sh
+- Edits root password
+- Adds new user
+- Denies root SSH login
+- Installs basic packages like htop
+- (optional) Installs Docker and Docker-Compose
+- (optional) Installs Duo 2FA
 
 ## How to run?
 
