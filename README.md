@@ -1,13 +1,28 @@
-# Server provisiong
-This repo is meant to help automate a fresh server install, probably easier than ansible. :smile:
+# What is this?
+This script is meant to help automate a fresh server install, probably easier than ansible. :smile:
+
+- Edits root password
+- Adds new user
+- Denies root SSH login
+- Installs basic packages like htop
+- (optional) Installs Docker and Docker-Compose
+- (optional) Installs Duo 2FA
 
 Chas maintains Ubuntu.sh and Mark maintains Centos.sh
 
 ## How to run?
+We encourage you to read the source code first before piping any script to bash.
 
+Once you ordered your VPS, login as root, then run this: 
 ### ```curl -sL https://z.mk/sh | bash```
 
 This will run the "run.sh" script directly from github, and ask you a few questions to setup your new box.
+
+If you do not want to take advantage of an amazing SHORTURL service, then you can always run it from github directly with a nice long url.
+
+##### ```curl -s https://raw.githubusercontent.com/chasgames/EZ-Server-Provisioning/master/run.sh | bash```
+
+Do not re-run the script ! It's only meant for a one-time run at the moment.
 
 ## ToDo List:
 - [ ] ToDos
@@ -29,7 +44,9 @@ docker run -i -t centos /bin/bash
 
 
 Interesting Notes:
+
 curl -s http://server/path/script.sh | bash /dev/stdin arg1 arg2
+
 curl -sL -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/chasgames/EZ-Server-Provisioning/master/ubuntu.sh | bash
 Things that helped:
 https://askubuntu.com/questions/491509/how-to-get-dialog-box-input-directed-to-a-variable
