@@ -3,7 +3,6 @@ This script is meant to help automate a fresh server install, probably easier th
 
 Chas maintains Ubuntu.sh and Mark maintains Centos.sh
 
-Ubuntu.sh
 - Edits root password
 - Adds new user
 - Denies root SSH login
