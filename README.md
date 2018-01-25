@@ -12,7 +12,7 @@ This will run the "run.sh" script directly from github, and ask you a few questi
 
 If you do not want to take advantage of an amazing SHORTURL service, then you can always run it from github directly with a nice long url.
 
-##### ```curl -sL https://raw.githubusercontent.com/chasgames/EZ-Server-Provisioning/master/run.sh | bash```
+##### ```curl -s https://raw.githubusercontent.com/chasgames/EZ-Server-Provisioning/master/run.sh | bash```
 
 Do not re-run the script ! It's only meant for a one-time run at the moment.
 
@@ -36,6 +36,7 @@ docker run -i -t centos /bin/bash
 
 
 Interesting Notes:
+
 curl -s http://server/path/script.sh | bash /dev/stdin arg1 arg2
 
 curl -sL -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/chasgames/EZ-Server-Provisioning/master/ubuntu.sh | bash
