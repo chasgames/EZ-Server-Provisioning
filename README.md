@@ -5,9 +5,12 @@ Chas maintains Ubuntu.sh and Mark maintains Centos.sh
 
 ## How to run?
 
+Once you ordered your VPS, login as root, and then run this:
 ### ```curl -sL https://z.mk/sh | bash```
 
 This will run the "run.sh" script directly from github, and ask you a few questions to setup your new box.
+
+Do not re-run the script ! It's only meant for a one-time run at the moment.
 
 ## ToDo List:
 - [ ] ToDos
