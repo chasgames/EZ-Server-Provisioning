@@ -26,7 +26,7 @@ echo "You have decided: $docker_choice"
 
     echo "Configuring packages"
     echo "Removing SSH Root Login"
-    sed -i '/^PermitRootLogin[ \t]\+\w\+$/{ s//PermitRootLogin no/g; }' /etc/ssh/sshd_config
+    sed -re 's/^(PermitRootLogin)([[:space:]]+)yes/\1\2no/' -i.`date -I` /etc/ssh/sshd_config
     # Configuring Chrony, way better than NTPd, much more reliable and stays in Sync.
     echo "Maybe add some time sources here"
     
@@ -63,4 +63,15 @@ if cat /etc/passwd | grep $newusr_choice >/dev/null; then
 		curl -s https://duo.com/APT-GPG-KEY-DUO | apt-key add -
 		apt update -y
 		apt install duo-unix
+		sed -i '/ikey =/c\ikey = $duointegration' /etc/duo/pam_duo.conf
+		sed -i '/skey =/c\skey = $duosecret' /etc/duo/pam_duo.conf
+		sed -i '/host =/c\host = $duoAPIhostname' /etc/duo/pam_duo.conf
+		sed -i '8 a\pushinfo = yes' /etc/duo/pam_duo.conf
+		sed -i '9 a\autopush = yes' /etc/duo/pam_duo.conf
+		sed -i '10 a\prompts = 1' /etc/duo/pam_duo.conf
+		sed -re 's/^(ChallengeResponseAuthentication)([[:space:]]+)no/\1\2yes/' -i.`date -I` /etc/ssh/sshd_config
+		sed -re 's/^(UsePAM)([[:space:]]+)no/\1\2yes/' -i.`date -I` /etc/ssh/sshd_config
+		sed -re 's/^(UseDNS)([[:space:]]+)yes/\1\2no/' -i.`date -I` /etc/ssh/sshd_config
+		sed -i '59 a\auth    required            /lib64/security/pam_duo.so' /etc/pam.d/sshd
+		service ssh restart
     fi

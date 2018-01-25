@@ -94,3 +94,6 @@ export newusr_choice=$newusr_choice
 export newusrpw_choice=$newusrpw_choice
 export docker_choice=$docker_choice
 export duo_choice=$duo_choice
+export duointegration=$duointegration
+export duosecret=$duosecret
+export duoAPIhostname=$duoAPIhostname
