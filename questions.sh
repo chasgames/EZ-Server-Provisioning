@@ -71,7 +71,7 @@ dialog --title "do you want this app" \
 
         if [[ $? -eq 0 ]] ; then
         echo "executing"
-        duo_choice=yes
+        duo_choice="yes"
         exec 3>&1;
             duointegration=$(dialog --inputbox "Login to https://duo.com/
         Click Applications –> Protect an Application
