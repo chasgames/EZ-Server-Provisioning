@@ -13,15 +13,15 @@ if [ $rootpw_choice != $rootpwconfirm_choice ]; then
     echo "ABORT ABORT - Root password mistype"
     exit 1
 fi
-echo $cancel_catch
-echo $testing
-echo $hostname_choice
-echo $rootpw_choice
-echo $rootpwconfirm_choice
-echo $newusr_choice
-echo $newusrpw_choice
-echo $duo_choice
-echo "You have decided: $docker_choice"
+#echo $cancel_catch
+#echo $testing
+#echo $hostname_choice
+#echo $rootpw_choice
+#echo $rootpwconfirm_choice
+#echo $newusr_choice
+#echo $newusrpw_choice
+#echo $duo_choice
+#echo "You have decided: $docker_choice"
 
     # First Update all packages -y for no interactive
 
@@ -43,6 +43,7 @@ if cat /etc/passwd | grep $newusr_choice >/dev/null; then
         fi
 
     hostnamectl set-hostname $hostname_choice
+    #Need to edit /etc/hosts aswell 172.0.1.1 with hostname
 
     # Need to restart SSH for root password to take affect.
     service ssh restart
