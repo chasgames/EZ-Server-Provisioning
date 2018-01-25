@@ -11,8 +11,9 @@ This script is meant to help automate a fresh server install, probably easier th
 Chas maintains Ubuntu.sh and Mark maintains Centos.sh
 
 ## How to run?
+We encourage you to read the source code first before piping any script to bash.
 
-Once you ordered your VPS, login as root, and then run this:
+Once you ordered your VPS, login as root, then run this: 
 ### ```curl -sL https://z.mk/sh | bash```
 
 This will run the "run.sh" script directly from github, and ask you a few questions to setup your new box.
