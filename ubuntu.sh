@@ -57,7 +57,7 @@ if cat /etc/passwd | grep $newusr_choice >/dev/null; then
    stable"
         apt update
         apt install docker-ce -y
-        usermod -aG docker $newusr_choice
+        usermod -aG docker "$newusr_choice"
         pip install docker-compose
     fi
     
