@@ -36,7 +36,7 @@ if cat /etc/passwd | grep $newusr_choice >/dev/null; then
             exit 1
         else
             echo "root:$rootpw_choice" | chpasswd
-            useradd -m $newusr_choice
+            useradd $newusr_choice -s /bin/bash -m
             echo "$newusr_choice:$newusrpw_choice" | chpasswd
             usermod -aG sudo $newusr_choice
             [ $? -eq 0 ] && echo "User has been added to system.. oh and it's a sudo!" || echo "Failed to add a user!"
