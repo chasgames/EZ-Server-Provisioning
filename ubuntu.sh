@@ -59,7 +59,9 @@ if cat /etc/passwd | grep $newusr_choice >/dev/null; then
         apt update
         apt install docker-ce -y
         usermod -aG docker "$newusr_choice"
-        pip install docker-compose
+	pip install --upgrade pip
+	pip install setuptools
+	pip install docker-compose
     fi
     
 
