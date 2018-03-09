@@ -3,7 +3,7 @@
 echo "Congratulations for choosing the best linux distribution"
 apt update -y
 apt upgrade -y
-apt-get install dialog htop denyhosts iotop iftop openssh-server vim sudo tree chrony curl wget man ncdu screen -y
+apt-get install dialog htop denyhosts iotop iftop openssh-server vim sudo tree chrony curl wget man ncdu screen ranger -y
 source <(curl -s https://raw.githubusercontent.com/chasgames/EZ-Server-Provisioning/master/questions.sh)
 if [ $cancel_catch -eq 1 ]; then
     echo "ABORT ABORT - You cancelled something"
