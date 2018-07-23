@@ -43,7 +43,8 @@ if cat /etc/passwd | grep $newusr_choice >/dev/null; then
         fi
 
     hostnamectl set-hostname $hostname_choice
-    #Need to edit /etc/hosts aswell 172.0.1.1 with hostname
+    #/etc/hosts aswell 127.0.0.1, 127.0.1.1 is just a bug for gnome in debian
+    sed -i "/^127.0.0.1/ s/$/ $(hostname)/" /etc/hosts
 
     # Need to restart SSH for root password to take affect.
     service ssh restart
